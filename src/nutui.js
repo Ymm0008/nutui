@@ -95,6 +95,9 @@ import TextBox from "./packages/textbox/index.js";
 import Elevator from "./packages/elevator/index.js";
 import "./packages/elevator/elevator.scss";
 import Popup from "./packages/popup/index.js";
+import LuckDraw from "./packages/luckdraw/index.js";
+import "./packages/luckdraw/luckdraw.scss";
+
 const packages = {
   Cell,
   Dialog,
@@ -142,7 +145,8 @@ const packages = {
   TextBox,
   Avatar,
   Elevator,
-  Popup
+  Popup,
+  LuckDraw: LuckDraw
 };
 
 const components = {};
@@ -170,7 +174,7 @@ pkgList.map(item => {
   }
 });
 
-const install = function(Vue, opts = {}) {
+const install = function (Vue, opts = {}) {
   if (install.installed) return;
 
   if (opts.locale) {
@@ -208,8 +212,7 @@ const install = function(Vue, opts = {}) {
 
   Vue.use(Lazyload, {
     lazyComponent: true,
-    loading:
-      "//img12.360buyimg.com/imagetools/jfs/t1/73967/28/14561/916/5dc142e4E0666555b/bf33454553c6035e.png"
+    loading: "//img12.360buyimg.com/imagetools/jfs/t1/73967/28/14561/916/5dc142e4E0666555b/bf33454553c6035e.png"
   });
 };
 

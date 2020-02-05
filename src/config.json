@@ -502,6 +502,16 @@
       "sort": "5",
       "showDemo": true,
       "author": "杨凯旋"
+    },
+    {
+      "version": "1.0.0",
+      "name": "LuckDraw",
+      "chnName": "转盘抽奖",
+      "desc": "奖品可设置，支持扇区的颜色设置，转动圈数，指定奖品中奖等",
+      "type": "component",
+      "sort": "0",
+      "showDemo": true,
+      "author": "yumingming"
     }
   ]
 }
