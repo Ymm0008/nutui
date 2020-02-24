@@ -1,3 +1,31 @@
+## 2.2.0
+
+`2020-02-12`
+
+* :sparkles: feat(TabSelect)：新增TabSelect组件送货时间 @dushoujun
+* :sparkles: feat(LeftSlip)：新增LeftSlip组件 @vickyYE
+* :sparkles: feat(Scroller)：组件新增滚动到指定位置事件 @irisSong
+* :bug: fix(datepicker) 部分手机样式不兼容 #191 @irisSong
+* :bug: fix(datepicker) 将手机字体调大后放大镜效果错乱 #193 @irisSong
+* :bug: fix(InfiniteLoading) keep-alive 场景scoll事件未卸载 #199 @irisSong
+* :bug: fix(popup)：修复无法按需加载、文档文案错误 @yangkaixuan
+
+## 2.1.9
+
+`2020-01-09`
+
+* :sparkles: feat(CheckboxGroup)：增加全选、反选功能 @richard1015
+* :sparkles: feat(uploader)：上传组件支持withCredentials参数 #190 @richard1015
+* :sparkles: feat：新增popup组件 @yangkaixuan
+* :sparkles: feat：新增Elevator电梯楼层组件 @zhenyulei
+* :sparkles: feat：新增textbox文本域组件 @guoxiao158
+* :bug: fix(calendar)：修复日历组件 当某个月的1号是周日时，月份下方会空出来一行 @irisSong
+* :bug: fix(menu)：修复组件多实例bug #182 @Ymm0008
+* :bug: fix(col)：修复组件中文字超出时样式问题 @richard1015
+* :bug: fix(imagepicker)：imgList双向绑定问题 #187 @richard1015
+* :bug: fix(toast)：修复toast多实例关闭事件冲突 #181 @guoxiao158
+* :zap: doc：修改（picker自定义数据demo；cdn按需加载；VueCLI3按需加载）； @richard1015
+
 ## 2.1.8
 
 `2019-12-11`

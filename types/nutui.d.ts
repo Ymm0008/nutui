@@ -65,3 +65,7 @@ export declare class Infiniteloading extends UIComponent {}
 export declare class Lazyload extends UIComponent {}
 export declare class Elevator extends UIComponent {}
 export declare class LuckDraw extends UIComponent {}
+export declare class LeftSlip extends UIComponent {}
+export declare class TabSelect extends UIComponent {}
+export declare class Popup extends UIComponent {}
+
