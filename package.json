@@ -4,7 +4,7 @@
   "npm": {
     "tag": "beta"
   },
-  "description": "一套京东风格的轻量级移动端 Vue 组件库",
+  "description": "京东风格的轻量级移动端 Vue 组件库",
   "main": "dist/nutui.umd.js",
   "module": "dist/nutui.es.js",
   "style": "dist/style.css",
@@ -37,7 +37,7 @@
   ],
   "scripts": {
     "checked": "npm run generate:file && tsc",
-    "dev": "npm run checked && vite --open",
+    "dev": "npm run checked && vite --open --force",
     "build:site": "npm run checked && vite build",
     "build:gh-pages": "npm run checked && vite build --base=/nutui/",
     "build:site:oss": "npm run checked && vite build --base=/nutui/3x/",
