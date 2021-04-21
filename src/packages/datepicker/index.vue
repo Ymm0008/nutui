@@ -1,7 +1,7 @@
 <template>
   <view-block>
     <nut-picker
-      :is-visible="show"
+      :visible="show"
       @close="closeHandler"
       :list-data="columns"
       @change="changeHandler"
@@ -35,7 +35,7 @@ export default create({
   children: [picker],
   props: {
     modelValue: null,
-    isVisible: {
+    visible: {
       type: Boolean,
       default: false
     },
@@ -46,10 +46,6 @@ export default create({
     type: {
       type: String,
       default: 'date'
-    },
-    isUse12Hours: {
-      type: Boolean,
-      default: false
     },
     isShowChinese: {
       type: Boolean,
@@ -70,7 +66,7 @@ export default create({
       validator: isDate
     }
   },
-  emits: ['click', 'update:isVisible', 'confirm'],
+  emits: ['click', 'update:visible', 'confirm'],
 
   setup(props, { emit }) {
     const state = reactive({
@@ -183,11 +179,7 @@ export default create({
           result = result.slice(0, 5);
           break;
         case 'time':
-          if (props.isUse12Hours) {
-            result = result.slice(3, 5);
-          } else {
-            result = result.slice(3, 6);
-          }
+          result = result.slice(3, 6);
           break;
         case 'month-day':
           result = result.slice(1, 3);
@@ -200,19 +192,42 @@ export default create({
     });
 
     const changeHandler = (val: string[]) => {
-      console.log(val);
-      let formatDate = [];
-      if (props.isShowChinese) {
-        formatDate = val.map((res: string) => {
-          return Number(res.slice(0, res.length - 1));
-        }) as any;
-        console.log(formatDate);
-      } else {
-        formatDate = val;
+      if (['date', 'datetime'].includes(props.type)) {
+        let formatDate = [];
+        if (props.isShowChinese) {
+          formatDate = val.map((res: string) => {
+            return Number(res.slice(0, res.length - 1));
+          }) as any;
+        } else {
+          formatDate = val;
+        }
+        let date: Date;
+        if (props.type === 'date') {
+          state.currentDate = formatValue(
+            new Date(
+              formatDate[0],
+              formatDate[1] - 1,
+              Math.min(
+                formatDate[2],
+                getMonthEndDay(formatDate[0], formatDate[1])
+              )
+            )
+          );
+        } else if (props.type === 'datetime') {
+          state.currentDate = formatValue(
+            new Date(
+              formatDate[0],
+              formatDate[1] - 1,
+              Math.min(
+                formatDate[2],
+                getMonthEndDay(formatDate[0], formatDate[1])
+              ),
+              formatDate[3],
+              formatDate[4]
+            )
+          );
+        }
       }
-      state.currentDate = formatValue(
-        new Date(formatDate[0], formatDate[1] - 1, formatDate[2])
-      );
     };
 
     const generateValue = (
@@ -271,22 +286,18 @@ export default create({
           res.type
         );
       });
-      if (props.type === 'time' && props.isUse12Hours) {
-        val.push({ values: ['上午', '下午'], defaultIndex: 0 });
-      }
       return val;
     });
-
     const handleClick = (event: Event) => {
       emit('click', event);
     };
 
     const closeHandler = () => {
-      emit('update:isVisible', false);
+      emit('update:visible', false);
     };
 
     const confirm = (val: Event) => {
-      emit('update:isVisible', false);
+      emit('update:visible', false);
       emit('confirm', val);
     };
 
@@ -302,7 +313,7 @@ export default create({
     );
 
     watch(
-      () => props.isVisible,
+      () => props.visible,
       val => {
         state.show = val;
       }

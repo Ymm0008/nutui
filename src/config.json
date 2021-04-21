@@ -215,6 +215,15 @@
           "author": "richard1015"
         },
         {
+          "name": "CellGroup",
+          "sort": 1,
+          "cName": "单元格组件",
+          "type": "component",
+          "show": false,
+          "desc": "展示分组列表",
+          "author": "richard1015"
+        },
+        {
           "name": "Uploader",
           "sort": 2,
           "cName": "上传组件",
@@ -373,6 +382,24 @@
           "sort": 16,
           "show": true,
           "author": "Drjingfubo"
+        },
+        {
+          "name": "Steps",
+          "sort": 17,
+          "cName": "步骤条",
+          "type": "component",
+          "show": true,
+          "desc": "步骤条",
+          "author": "ailululu"
+        },
+        {
+          "name": "Step",
+          "sort": 17,
+          "cName": "步骤条子组件",
+          "type": "component",
+          "show": false,
+          "desc": "步骤条子组件",
+          "author": "ailululu"
         }
       ]
     },
@@ -402,7 +429,7 @@
           "sort": 2,
           "cName": "菜单组件",
           "type": "component",
-          "show": true,
+          "show": false,
           "desc": "下拉菜单组件",
           "author": "vickyYE"
         },

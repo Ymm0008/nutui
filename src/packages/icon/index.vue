@@ -1,7 +1,8 @@
 <script lang="ts">
-import { h, PropType, computed } from 'vue';
+import { h, PropType } from 'vue';
 import { createComponent } from '@/utils/create';
 const { componentName, create } = createComponent('icon');
+import { pxCheck } from '@/utils/pxCheck';
 
 export default create({
   props: {
@@ -22,10 +23,6 @@ export default create({
       return props.name ? props.name.indexOf('/') !== -1 : false;
     };
 
-    const pxCheck = (value: string | number) => {
-      return typeof value === 'number' ? `${value}px` : String(value);
-    };
-
     return () => {
       const _isImage = isImage();
       return h(
@@ -33,12 +30,12 @@ export default create({
         {
           class: _isImage
             ? `${componentName}__img`
-            : `${props.classPrefix} ${componentName}-${props.name}`,
+            : `${props.classPrefix} ${componentName} ${componentName}-${props.name}`,
           style: {
             color: props.color,
             fontSize: pxCheck(props.size),
-            width: _isImage ? pxCheck(props.size) : '',
-            height: _isImage ? pxCheck(props.size) : ''
+            width: pxCheck(props.size),
+            height: pxCheck(props.size)
           },
           onClick: handleClick,
           src: _isImage ? props.name : ''
